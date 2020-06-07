@@ -1,0 +1,12 @@
+C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\bin\Debug\MineSweeper.exe.config
+C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\bin\Debug\MineSweeper.exe
+C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\bin\Debug\MineSweeper.pdb
+C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.csprojAssemblyReference.cache
+C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.Properties.Resources.resources
+C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.csproj.GenerateResource.cache
+C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.csproj.CoreCompileInputs.cache
+C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.exe
+C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.pdb
+C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.Resource1.resources
+C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.Game.resources
+C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.Menu.resources
