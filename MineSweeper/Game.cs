@@ -14,26 +14,44 @@ namespace MineSweeper
     public partial class Game : Form
     {
         Field ps;
+        Sounds sound = new Sounds();
+        Button[,] buttonMatrix;
+
+        int tileSize = 40;
+        int infoBar = 200;
+        
         bool gameStatus = true;
         bool gameWon = false;
-        Button[,] buttonMatrix;
+        bool practice = false;
+        
         System.Timers.Timer aTimer;
         int timer;
         int difficulty = 1;
+
         Button back;
         Label minesLeft;
         Label minesLeftBox;
         Label time;
         Label timeBox;
         Point coordinates;
-        int tileSize = 40;
+        
         int rows;
         int cols;
         int mines;
-        int infoBar = 200;
+
+
         public Game(int level)
         {
             difficulty = level;
+            InitializeComponent();
+        }
+
+        public Game(int rows, int columns, int mines)
+        {
+            this.cols = columns;
+            this.mines = mines;
+            this.rows = rows;
+            practice = true;
             InitializeComponent();
         }
 
@@ -41,14 +59,20 @@ namespace MineSweeper
         {
             makeButtonMatrix();
             loadInfo();
+            this.Text = "Minesweeper";
         }
 
         private void makeButtonMatrix()
         {
-            ps = new Field(difficulty);
-            rows = ps.rows;
-            cols = ps.cols;
-            mines = ps.bombs;
+            if (practice)
+                ps = new Field(rows, cols, mines);
+            else
+            {
+                ps = new Field(difficulty);
+                rows = ps.rows;
+                cols = ps.cols;
+                mines = ps.bombs;
+            }
             buttonMatrix = new Button[rows, cols];
             for (int x = 0; x < rows; x++)
             {
@@ -62,15 +86,12 @@ namespace MineSweeper
                 }
             }
             this.Height = cols * (tileSize) + 40;
-            this.Width = rows * (tileSize) + infoBar + 10;
+            this.Width = rows * (tileSize) + infoBar + 15;
         }
 
         private void backClick(object sender, EventArgs e)
-        {
-            this.Hide();
-            Menu form1 = new Menu();
-            form1.Show();
-
+        {                       
+            this.Close();            
         }
 
         private void checkSurrounding(int x, int y)
@@ -78,10 +99,10 @@ namespace MineSweeper
             Button c;
             if (ps.mineField[x, y].number == 0)
                 for (int k = x - 1; k <= x + 1; k++)
-                    if ((k >= 0) && (k < ps.rows))
+                    if ((k >= 0) && (k < rows))
                         for (int l = y - 1; l <= y + 1; l++)
                         {
-                            if ((l >= 0) && (l < ps.cols) && !(l == x && k == y))
+                            if ((l >= 0) && (l < cols) && !(l == x && k == y))
                             {
                                 c = buttonMatrix[k, l];
                                 makeImage(k, l);
@@ -99,13 +120,13 @@ namespace MineSweeper
         {
             if (gameStatus == false)
             {
+                showBombs();
                 string message = "You lost";
                 string caption = "Message";
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
                 DialogResult result;
                 result = MessageBox.Show(message, caption, buttons);
-                aTimer.Stop();
-                showBombs();
+                aTimer.Stop();                
             }
             else
             {
@@ -113,6 +134,7 @@ namespace MineSweeper
                 if (gameWon == true)
                 {
                     aTimer.Stop();
+                    showBombs();
                 }                
             }
         }
@@ -134,6 +156,8 @@ namespace MineSweeper
         {
             Button b = buttonMatrix[x, y];
             b.BackgroundImageLayout = ImageLayout.Stretch;
+            if (ps.mineField[x, y].flag)
+                mines++;
             switch (ps.mineField[x, y].number)
             {
                 case 0:
@@ -222,6 +246,7 @@ namespace MineSweeper
                 else
                 {
                     makeImage(x, y);
+                    sound.playBombSound();
                     gameStatus = false;
                 }
             }

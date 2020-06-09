@@ -10,3 +10,4 @@ C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.pdb
 C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.Resource1.resources
 C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.Game.resources
 C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.Menu.resources
+C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.PracticeBox.resources

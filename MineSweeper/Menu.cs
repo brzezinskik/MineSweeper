@@ -14,17 +14,20 @@ namespace MineSweeper
     public partial class Menu : Form
     {
         int level = 1;
+        private Game gameForm;
+        private PracticeBox practiceBox;
         public Menu()
         {
             InitializeComponent();
+            this.Text = "Minesweeper";
         }
 
         private void startClick(object sender, EventArgs e)
         {
-            this.Hide();
-            Game form2 = new Game(level);
-            form2.Show();
+            gameForm = new Game(level);
+            gameForm.ShowDialog();
         }
+
         private void exitClick(object sender, EventArgs e)
         {
             this.Close();
@@ -37,7 +40,8 @@ namespace MineSweeper
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            practiceBox = new PracticeBox();
+            practiceBox.ShowDialog();
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)

@@ -101,7 +101,6 @@ namespace MineSweeper
                         openFields++;
                 }
             }
-            Console.WriteLine(openFields + " " + (rows * cols - bombs));
             if (openFields == rows * cols - bombs)
                 return true;
             return false;
