@@ -13,7 +13,8 @@ namespace MineSweeper
         public Menu()
         {
             InitializeComponent();
-            difficulty.SelectedIndex = 0;           
+            difficulty.SelectedIndex = 0;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void startClick(object sender, EventArgs e)

@@ -6,7 +6,7 @@ namespace MineSweeper
 {
     public partial class Game : Form
     {
-        private Field ps;
+        private Field gameField;
         private readonly Sounds sound = new Sounds();
         private Button[,] buttonMatrix;
 
@@ -55,18 +55,20 @@ namespace MineSweeper
             makeButtonMatrix();
             loadInfo();
             this.Text = "Minesweeper";
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
         private void makeButtonMatrix()
         {
             if (practice)
-                ps = new Field(rows, cols, mines);
+                gameField = new Field(rows, cols, mines);
             else
             {
-                ps = new Field(difficulty);
-                rows = ps.rows;
-                cols = ps.cols;
-                mines = ps.bombs;
+                gameField = new Field(difficulty);
+                rows = gameField.rows;
+                cols = gameField.cols;
+                mines = gameField.bombs;
             }
             buttonMatrix = new Button[rows, cols];
             for (int x = 0; x < rows; x++)
@@ -81,28 +83,28 @@ namespace MineSweeper
                 }
             }
             this.Height = cols * (tileSize) + 40;
-            this.Width = rows * (tileSize) + infoBar + 15;
+            this.Width = rows * (tileSize) + infoBar + 20;
         }
 
         private void checkSurrounding(int x, int y)
         {
             Button c;
-            if (ps.mineField[x, y].Number == 0)
-                for (int k = x - 1; k <= x + 1; k++)
-                    if ((k >= 0) && (k < rows))
-                        for (int l = y - 1; l <= y + 1; l++)
+            if (gameField.mineField[x, y].Number == 0)
+                for (int i = x - 1; i <= x + 1; i++)
+                    if ((i >= 0) && (i < rows))
+                        for (int j = y - 1; j <= y + 1; j++)
                         {
-                            if ((l >= 0) && (l < cols) && !(l == x && k == y))
+                            if ((j >= 0) && (j < cols) && !(j == x && i == y))
                             {
-                                c = buttonMatrix[k, l];
-                                makeImage(k, l);
+                                c = buttonMatrix[i, j];
+                                makeImage(i, j);
                                 c.Enabled = false;
-                                if (ps.mineField[k, l].Number == 0 && ps.mineField[k, l].Open == false)
+                                if (gameField.mineField[i, j].Number == 0 && gameField.mineField[i, j].Open == false)
                                 {
-                                    ps.mineField[k, l].Open = true;
-                                    checkSurrounding(k, l);
+                                    gameField.mineField[i, j].Open = true;
+                                    checkSurrounding(i, j);
                                 }
-                                ps.mineField[k, l].Open = true;
+                                gameField.mineField[i, j].Open = true;
                             }
                         }
         }
@@ -120,7 +122,7 @@ namespace MineSweeper
             }
             else
             {
-                gameWon = ps.gameWon();
+                gameWon = gameField.gameWon();
                 if (gameWon == true)
                 {
                     aTimer.Stop();
@@ -167,7 +169,7 @@ namespace MineSweeper
                 for (int y = 0; y < cols; y++)
                 {
                     buttonMatrix[x, y].Enabled = false;
-                    if (ps.mineField[x, y].Mine == true)
+                    if (gameField.mineField[x, y].Mine == true)
                         makeImage(x, y);
                 }
             }
@@ -177,9 +179,9 @@ namespace MineSweeper
         {
             Button b = buttonMatrix[x, y];
             b.BackgroundImageLayout = ImageLayout.Stretch;
-            if (ps.mineField[x, y].Flag)
+            if (gameField.mineField[x, y].Flag)
                 mines++;
-            switch (ps.mineField[x, y].Number)
+            switch (gameField.mineField[x, y].Number)
             {
                 case 0:
                     b.BackgroundImage = MineSweeper.Resource1.blank;
@@ -233,9 +235,9 @@ namespace MineSweeper
             if (e.Button == MouseButtons.Right)
             {
                 b = buttonMatrix[x, y];
-                if (ps.mineField[x, y].Flag == true)
+                if (gameField.mineField[x, y].Flag == true)
                 {
-                    ps.mineField[x, y].Flag = false;
+                    gameField.mineField[x, y].Flag = false;
                     b.BackgroundImageLayout = ImageLayout.Stretch;
                     b.BackgroundImage = MineSweeper.Resource1.unknown;
                     mines++;
@@ -243,7 +245,7 @@ namespace MineSweeper
                 }
                 else
                 {
-                    ps.mineField[x, y].Flag = true;
+                    gameField.mineField[x, y].Flag = true;
                     b.BackgroundImageLayout = ImageLayout.Stretch;
                     b.BackgroundImage = MineSweeper.Resource1.flag;
                     mines--;
@@ -253,16 +255,16 @@ namespace MineSweeper
             else
             {
 
-                ps.mineField[x, y].Open = true;
-                ps.mineField[x, y].Flag = false;
-                if (ps.mineField[x, y].Mine == false)
+                gameField.mineField[x, y].Open = true;
+                gameField.mineField[x, y].Flag = false;
+                if (gameField.mineField[x, y].Mine == false)
                 {
                     makeImage(x, y);
-                    if (ps.mineField[x, y].Number == 0)
+                    if (gameField.mineField[x, y].Number == 0)
                     {
                         checkSurrounding(x, y);
                     }
-                    ps.mineField[x, y].Open = true;
+                    gameField.mineField[x, y].Open = true;
                 }
                 else
                 {
@@ -324,6 +326,7 @@ namespace MineSweeper
             back.MouseClick += new MouseEventHandler(backClick);
             this.Controls.Add(back);
         }
+
         private void backClick(object sender, EventArgs e)
         {
             this.Close();
@@ -332,7 +335,8 @@ namespace MineSweeper
         void tick(object sender, EventArgs e)
         {
             timer++;
-            timeBox.Text = timer.ToString();
+            int currentTime = timer;
+            timeBox.Text = currentTime.ToString();
         }
     }
 }

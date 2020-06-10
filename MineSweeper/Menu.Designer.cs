@@ -46,7 +46,7 @@
             "Beginner",
             "Intermiediate",
             "Expert"});
-            this.difficulty.Location = new System.Drawing.Point(12, 119);
+            this.difficulty.Location = new System.Drawing.Point(12, 110);
             this.difficulty.Name = "difficulty";
             this.difficulty.Size = new System.Drawing.Size(158, 21);
             this.difficulty.TabIndex = 0;
@@ -54,10 +54,10 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 222);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(12, 219);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 42);
+            this.button1.Size = new System.Drawing.Size(158, 35);
             this.button1.TabIndex = 1;
             this.button1.Text = "Exit";
             this.button1.UseVisualStyleBackColor = true;
@@ -65,22 +65,23 @@
             // 
             // button2
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.BackColor = System.Drawing.Color.Gainsboro;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Location = new System.Drawing.Point(12, 6);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 39);
+            this.button2.Size = new System.Drawing.Size(158, 35);
             this.button2.TabIndex = 2;
             this.button2.Text = "Start";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.startClick);
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(12, 146);
+            this.button3.Location = new System.Drawing.Point(12, 137);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(158, 31);
+            this.button3.Size = new System.Drawing.Size(158, 35);
             this.button3.TabIndex = 3;
             this.button3.Text = "Custom Game";
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -90,11 +91,11 @@
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(12, 82);
+            this.textBox1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(12, 73);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(158, 31);
+            this.textBox1.Size = new System.Drawing.Size(158, 33);
             this.textBox1.TabIndex = 4;
             this.textBox1.Text = "Difficulty";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -102,9 +103,9 @@
             // highScore
             // 
             this.highScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.highScore.Location = new System.Drawing.Point(12, 183);
+            this.highScore.Location = new System.Drawing.Point(12, 178);
             this.highScore.Name = "highScore";
-            this.highScore.Size = new System.Drawing.Size(158, 33);
+            this.highScore.Size = new System.Drawing.Size(158, 35);
             this.highScore.TabIndex = 5;
             this.highScore.Text = "High Score";
             this.highScore.UseVisualStyleBackColor = true;
@@ -112,7 +113,8 @@
             // 
             // nickName
             // 
-            this.nickName.Location = new System.Drawing.Point(12, 51);
+            this.nickName.BackColor = System.Drawing.SystemColors.Info;
+            this.nickName.Location = new System.Drawing.Point(12, 47);
             this.nickName.Name = "nickName";
             this.nickName.Size = new System.Drawing.Size(158, 20);
             this.nickName.TabIndex = 6;
@@ -121,8 +123,8 @@
             // 
             // Menu
             // 
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(186, 273);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ClientSize = new System.Drawing.Size(186, 259);
             this.Controls.Add(this.nickName);
             this.Controls.Add(this.highScore);
             this.Controls.Add(this.textBox1);

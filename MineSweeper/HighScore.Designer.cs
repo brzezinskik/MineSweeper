@@ -119,6 +119,7 @@
             // 
             this.textBox3.Location = new System.Drawing.Point(153, 3);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(94, 20);
             this.textBox3.TabIndex = 2;
             this.textBox3.Text = "Time";
@@ -137,6 +138,7 @@
             // 
             this.NameB1.Location = new System.Drawing.Point(53, 28);
             this.NameB1.Name = "NameB1";
+            this.NameB1.ReadOnly = true;
             this.NameB1.Size = new System.Drawing.Size(94, 20);
             this.NameB1.TabIndex = 5;
             // 
@@ -144,6 +146,7 @@
             // 
             this.timeB1.Location = new System.Drawing.Point(153, 28);
             this.timeB1.Name = "timeB1";
+            this.timeB1.ReadOnly = true;
             this.timeB1.Size = new System.Drawing.Size(94, 20);
             this.timeB1.TabIndex = 6;
             // 
@@ -161,6 +164,7 @@
             // 
             this.NameB2.Location = new System.Drawing.Point(53, 53);
             this.NameB2.Name = "NameB2";
+            this.NameB2.ReadOnly = true;
             this.NameB2.Size = new System.Drawing.Size(94, 20);
             this.NameB2.TabIndex = 9;
             // 
@@ -168,6 +172,7 @@
             // 
             this.timeB2.Location = new System.Drawing.Point(153, 53);
             this.timeB2.Name = "timeB2";
+            this.timeB2.ReadOnly = true;
             this.timeB2.Size = new System.Drawing.Size(94, 20);
             this.timeB2.TabIndex = 10;
             // 
@@ -185,6 +190,7 @@
             // 
             this.NameB3.Location = new System.Drawing.Point(53, 78);
             this.NameB3.Name = "NameB3";
+            this.NameB3.ReadOnly = true;
             this.NameB3.Size = new System.Drawing.Size(94, 20);
             this.NameB3.TabIndex = 13;
             // 
@@ -192,6 +198,7 @@
             // 
             this.timeB3.Location = new System.Drawing.Point(153, 78);
             this.timeB3.Name = "timeB3";
+            this.timeB3.ReadOnly = true;
             this.timeB3.Size = new System.Drawing.Size(94, 20);
             this.timeB3.TabIndex = 14;
             // 
@@ -199,6 +206,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(53, 3);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(94, 20);
             this.textBox2.TabIndex = 1;
             this.textBox2.Text = "Name";
@@ -246,6 +254,7 @@
             // 
             this.textBox8.Location = new System.Drawing.Point(153, 3);
             this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(94, 20);
             this.textBox8.TabIndex = 2;
             this.textBox8.Text = "Time";
@@ -264,6 +273,7 @@
             // 
             this.NameE1.Location = new System.Drawing.Point(53, 28);
             this.NameE1.Name = "NameE1";
+            this.NameE1.ReadOnly = true;
             this.NameE1.Size = new System.Drawing.Size(94, 20);
             this.NameE1.TabIndex = 5;
             // 
@@ -271,6 +281,7 @@
             // 
             this.timeE1.Location = new System.Drawing.Point(153, 28);
             this.timeE1.Name = "timeE1";
+            this.timeE1.ReadOnly = true;
             this.timeE1.Size = new System.Drawing.Size(94, 20);
             this.timeE1.TabIndex = 6;
             // 
@@ -288,6 +299,7 @@
             // 
             this.NameE2.Location = new System.Drawing.Point(53, 53);
             this.NameE2.Name = "NameE2";
+            this.NameE2.ReadOnly = true;
             this.NameE2.Size = new System.Drawing.Size(94, 20);
             this.NameE2.TabIndex = 9;
             // 
@@ -295,6 +307,7 @@
             // 
             this.timeE2.Location = new System.Drawing.Point(153, 53);
             this.timeE2.Name = "timeE2";
+            this.timeE2.ReadOnly = true;
             this.timeE2.Size = new System.Drawing.Size(94, 20);
             this.timeE2.TabIndex = 10;
             // 
@@ -312,6 +325,7 @@
             // 
             this.NameE3.Location = new System.Drawing.Point(53, 78);
             this.NameE3.Name = "NameE3";
+            this.NameE3.ReadOnly = true;
             this.NameE3.Size = new System.Drawing.Size(94, 20);
             this.NameE3.TabIndex = 13;
             // 
@@ -319,6 +333,7 @@
             // 
             this.timeE3.Location = new System.Drawing.Point(153, 78);
             this.timeE3.Name = "timeE3";
+            this.timeE3.ReadOnly = true;
             this.timeE3.Size = new System.Drawing.Size(94, 20);
             this.timeE3.TabIndex = 14;
             // 
@@ -326,6 +341,7 @@
             // 
             this.textBox24.Location = new System.Drawing.Point(53, 3);
             this.textBox24.Name = "textBox24";
+            this.textBox24.ReadOnly = true;
             this.textBox24.Size = new System.Drawing.Size(94, 20);
             this.textBox24.TabIndex = 1;
             this.textBox24.Text = "Name";
@@ -373,6 +389,7 @@
             // 
             this.textBox26.Location = new System.Drawing.Point(153, 3);
             this.textBox26.Name = "textBox26";
+            this.textBox26.ReadOnly = true;
             this.textBox26.Size = new System.Drawing.Size(94, 20);
             this.textBox26.TabIndex = 2;
             this.textBox26.Text = "Time";
@@ -391,6 +408,7 @@
             // 
             this.NameI1.Location = new System.Drawing.Point(53, 28);
             this.NameI1.Name = "NameI1";
+            this.NameI1.ReadOnly = true;
             this.NameI1.Size = new System.Drawing.Size(94, 20);
             this.NameI1.TabIndex = 5;
             // 
@@ -398,6 +416,7 @@
             // 
             this.timeI1.Location = new System.Drawing.Point(153, 28);
             this.timeI1.Name = "timeI1";
+            this.timeI1.ReadOnly = true;
             this.timeI1.Size = new System.Drawing.Size(94, 20);
             this.timeI1.TabIndex = 6;
             // 
@@ -415,6 +434,7 @@
             // 
             this.NameI2.Location = new System.Drawing.Point(53, 53);
             this.NameI2.Name = "NameI2";
+            this.NameI2.ReadOnly = true;
             this.NameI2.Size = new System.Drawing.Size(94, 20);
             this.NameI2.TabIndex = 9;
             // 
@@ -422,6 +442,7 @@
             // 
             this.timeI2.Location = new System.Drawing.Point(153, 53);
             this.timeI2.Name = "timeI2";
+            this.timeI2.ReadOnly = true;
             this.timeI2.Size = new System.Drawing.Size(94, 20);
             this.timeI2.TabIndex = 10;
             // 
@@ -439,6 +460,7 @@
             // 
             this.NameI3.Location = new System.Drawing.Point(53, 78);
             this.NameI3.Name = "NameI3";
+            this.NameI3.ReadOnly = true;
             this.NameI3.Size = new System.Drawing.Size(94, 20);
             this.NameI3.TabIndex = 13;
             // 
@@ -446,6 +468,7 @@
             // 
             this.timeI3.Location = new System.Drawing.Point(153, 78);
             this.timeI3.Name = "timeI3";
+            this.timeI3.ReadOnly = true;
             this.timeI3.Size = new System.Drawing.Size(94, 20);
             this.timeI3.TabIndex = 14;
             // 
@@ -453,6 +476,7 @@
             // 
             this.textBox36.Location = new System.Drawing.Point(53, 3);
             this.textBox36.Name = "textBox36";
+            this.textBox36.ReadOnly = true;
             this.textBox36.Size = new System.Drawing.Size(94, 20);
             this.textBox36.TabIndex = 1;
             this.textBox36.Text = "Name";
@@ -511,6 +535,7 @@
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "HighScore";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

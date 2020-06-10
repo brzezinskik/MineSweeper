@@ -34,6 +34,7 @@ namespace MineSweeper
         {
             InitializeComponent();
             this.Text = "Practice box";
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
 
