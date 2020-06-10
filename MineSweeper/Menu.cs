@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MineSweeper
@@ -16,15 +8,18 @@ namespace MineSweeper
         int level = 1;
         private Game gameForm;
         private PracticeBox practiceBox;
+        private HighScore highScoreBox;
+        String name;
         public Menu()
         {
             InitializeComponent();
-            this.Text = "Minesweeper";
+            difficulty.SelectedIndex = 0;           
         }
 
         private void startClick(object sender, EventArgs e)
         {
-            gameForm = new Game(level);
+            name = nickName.Text;
+            gameForm = new Game(level, name);
             gameForm.ShowDialog();
         }
 
@@ -52,6 +47,17 @@ namespace MineSweeper
                 level = 1;
             if (difficulty.Text == "Intermiediate")
                 level = 2;
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+            this.Text = "Minesweeper";
+        }
+
+        private void highScore_Click(object sender, EventArgs e)
+        {
+            highScoreBox = new HighScore();
+            highScoreBox.ShowDialog();
         }
     }
 }

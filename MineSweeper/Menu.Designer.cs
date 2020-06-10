@@ -33,6 +33,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.highScore = new System.Windows.Forms.Button();
+            this.nickName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // difficulty
@@ -44,7 +46,7 @@
             "Beginner",
             "Intermiediate",
             "Expert"});
-            this.difficulty.Location = new System.Drawing.Point(68, 94);
+            this.difficulty.Location = new System.Drawing.Point(12, 119);
             this.difficulty.Name = "difficulty";
             this.difficulty.Size = new System.Drawing.Size(158, 21);
             this.difficulty.TabIndex = 0;
@@ -52,9 +54,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(68, 203);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(12, 222);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 67);
+            this.button1.Size = new System.Drawing.Size(158, 42);
             this.button1.TabIndex = 1;
             this.button1.Text = "Exit";
             this.button1.UseVisualStyleBackColor = true;
@@ -62,7 +65,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(68, 12);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button2.Location = new System.Drawing.Point(12, 6);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(158, 39);
             this.button2.TabIndex = 2;
@@ -72,11 +77,13 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(68, 131);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(12, 146);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(158, 49);
+            this.button3.Size = new System.Drawing.Size(158, 31);
             this.button3.TabIndex = 3;
             this.button3.Text = "Custom Game";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -84,16 +91,40 @@
             // 
             this.textBox1.BackColor = System.Drawing.SystemColors.Control;
             this.textBox1.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(68, 57);
+            this.textBox1.Location = new System.Drawing.Point(12, 82);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(158, 31);
             this.textBox1.TabIndex = 4;
             this.textBox1.Text = "Difficulty";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // highScore
+            // 
+            this.highScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.highScore.Location = new System.Drawing.Point(12, 183);
+            this.highScore.Name = "highScore";
+            this.highScore.Size = new System.Drawing.Size(158, 33);
+            this.highScore.TabIndex = 5;
+            this.highScore.Text = "High Score";
+            this.highScore.UseVisualStyleBackColor = true;
+            this.highScore.Click += new System.EventHandler(this.highScore_Click);
+            // 
+            // nickName
+            // 
+            this.nickName.Location = new System.Drawing.Point(12, 51);
+            this.nickName.Name = "nickName";
+            this.nickName.Size = new System.Drawing.Size(158, 20);
+            this.nickName.TabIndex = 6;
+            this.nickName.Text = "Anonymous";
+            this.nickName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Menu
             // 
-            this.ClientSize = new System.Drawing.Size(306, 273);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.ClientSize = new System.Drawing.Size(186, 273);
+            this.Controls.Add(this.nickName);
+            this.Controls.Add(this.highScore);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -101,19 +132,20 @@
             this.Controls.Add(this.difficulty);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.Menu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button Exit;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox difficulty;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button highScore;
+        private System.Windows.Forms.TextBox nickName;
     }
 }
 

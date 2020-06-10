@@ -11,3 +11,4 @@ C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.Resour
 C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.Game.resources
 C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.Menu.resources
 C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.PracticeBox.resources
+C:\Users\Delsh\source\repos\MineSweeper\MineSweeper\obj\Debug\MineSweeper.HighScore.resources

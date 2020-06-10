@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace MineSweeper
 {
     public class Cell
     {
-        public bool mine;
-        public bool flag = false;
-        public bool open;
-        public int number;
+        private bool mine;
+        private bool flag = false;
+        private bool open;
+        private int number;
         public Cell()
         {
             flag = false;
@@ -24,6 +19,46 @@ namespace MineSweeper
             get
             {
                 return number;
+            }
+            set
+            {
+                number = value;
+            }
+        }
+
+        public bool Flag
+        {
+            get
+            {
+                return flag;
+            }
+            set
+            {
+                flag = value;
+            }
+        }
+
+        public bool Mine
+        {
+            get
+            {
+                return mine;
+            }
+            set
+            {
+                mine = value;
+            }
+        }
+
+        public bool Open
+        {
+            get
+            {
+                return open;
+            }
+            set
+            {
+                open = value;
             }
         }
 

@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Media;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms.VisualStyles;
+﻿using System.Media;
+
 
 namespace MineSweeper
 {
@@ -18,5 +11,10 @@ namespace MineSweeper
             audio.Play();
         }
 
+        public void playGameWonSound()
+        {
+            SoundPlayer audio = new SoundPlayer(MineSweeper.Resource1.gameWon);
+            audio.Play();
+        }
     }
 }

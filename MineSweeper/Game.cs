@@ -1,47 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
 namespace MineSweeper
 {
     public partial class Game : Form
     {
-        Field ps;
-        Sounds sound = new Sounds();
-        Button[,] buttonMatrix;
+        private Field ps;
+        private readonly Sounds sound = new Sounds();
+        private Button[,] buttonMatrix;
 
-        int tileSize = 40;
-        int infoBar = 200;
+        private readonly int tileSize = 40;
+        private readonly int infoBar = 200;
         
-        bool gameStatus = true;
-        bool gameWon = false;
-        bool practice = false;
+        private bool gameStatus = true;
+        private bool gameWon = false;
+        private bool practice = false;
         
-        System.Timers.Timer aTimer;
-        int timer;
-        int difficulty = 1;
+        private System.Timers.Timer aTimer;
+        private int timer;
+        private int difficulty = 1;
 
-        Button back;
-        Label minesLeft;
-        Label minesLeftBox;
-        Label time;
-        Label timeBox;
-        Point coordinates;
-        
-        int rows;
-        int cols;
-        int mines;
+        private Button back;
+        private Label minesLeft;
+        private Label minesLeftBox;
+        private Label time;
+        private Label timeBox;
+        private Point coordinates;
+
+        private String name;
+        private int rows;
+        private int cols;
+        private int mines;
 
 
-        public Game(int level)
+        public Game(int level, String name)
         {
+            this.name = name;
             difficulty = level;
             InitializeComponent();
         }
@@ -89,15 +84,10 @@ namespace MineSweeper
             this.Width = rows * (tileSize) + infoBar + 15;
         }
 
-        private void backClick(object sender, EventArgs e)
-        {                       
-            this.Close();            
-        }
-
         private void checkSurrounding(int x, int y)
         {
             Button c;
-            if (ps.mineField[x, y].number == 0)
+            if (ps.mineField[x, y].Number == 0)
                 for (int k = x - 1; k <= x + 1; k++)
                     if ((k >= 0) && (k < rows))
                         for (int l = y - 1; l <= y + 1; l++)
@@ -107,12 +97,12 @@ namespace MineSweeper
                                 c = buttonMatrix[k, l];
                                 makeImage(k, l);
                                 c.Enabled = false;
-                                if (ps.mineField[k, l].number == 0 && ps.mineField[k, l].open == false)
+                                if (ps.mineField[k, l].Number == 0 && ps.mineField[k, l].Open == false)
                                 {
-                                    ps.mineField[k, l].open = true;
+                                    ps.mineField[k, l].Open = true;
                                     checkSurrounding(k, l);
                                 }
-                                ps.mineField[k, l].open = true;
+                                ps.mineField[k, l].Open = true;
                             }
                         }
         }
@@ -134,8 +124,39 @@ namespace MineSweeper
                 if (gameWon == true)
                 {
                     aTimer.Stop();
+                    sound.playGameWonSound();
                     showBombs();
+                    string message = "You won";
+                    string caption = "Message";
+                    MessageBoxButtons buttons = MessageBoxButtons.OK;
+                    DialogResult result;
+                    result = MessageBox.Show(message, caption, buttons);
+                    addToHighScore();
                 }                
+            }
+        }
+
+        private void addToHighScore()
+        {
+            if (practice)
+                return;
+            else
+            {
+                Score score = new Score(name, timer);
+                switch (difficulty)
+                {
+                    case 1:
+                        HighScore.listBeginner.Add(score);
+                        break;
+
+                    case 2:
+
+                        break;
+
+                    case 3:
+
+                        break;
+                }
             }
         }
 
@@ -146,7 +167,7 @@ namespace MineSweeper
                 for (int y = 0; y < cols; y++)
                 {
                     buttonMatrix[x, y].Enabled = false;
-                    if (ps.mineField[x, y].mine == true)
+                    if (ps.mineField[x, y].Mine == true)
                         makeImage(x, y);
                 }
             }
@@ -156,9 +177,9 @@ namespace MineSweeper
         {
             Button b = buttonMatrix[x, y];
             b.BackgroundImageLayout = ImageLayout.Stretch;
-            if (ps.mineField[x, y].flag)
+            if (ps.mineField[x, y].Flag)
                 mines++;
-            switch (ps.mineField[x, y].number)
+            switch (ps.mineField[x, y].Number)
             {
                 case 0:
                     b.BackgroundImage = MineSweeper.Resource1.blank;
@@ -212,9 +233,9 @@ namespace MineSweeper
             if (e.Button == MouseButtons.Right)
             {
                 b = buttonMatrix[x, y];
-                if (ps.mineField[x, y].flag == true)
+                if (ps.mineField[x, y].Flag == true)
                 {
-                    ps.mineField[x, y].flag = false;
+                    ps.mineField[x, y].Flag = false;
                     b.BackgroundImageLayout = ImageLayout.Stretch;
                     b.BackgroundImage = MineSweeper.Resource1.unknown;
                     mines++;
@@ -222,7 +243,7 @@ namespace MineSweeper
                 }
                 else
                 {
-                    ps.mineField[x, y].flag = true;
+                    ps.mineField[x, y].Flag = true;
                     b.BackgroundImageLayout = ImageLayout.Stretch;
                     b.BackgroundImage = MineSweeper.Resource1.flag;
                     mines--;
@@ -232,16 +253,16 @@ namespace MineSweeper
             else
             {
 
-                ps.mineField[x, y].open = true;
-                ps.mineField[x, y].flag = false;
-                if (ps.mineField[x, y].mine == false)
+                ps.mineField[x, y].Open = true;
+                ps.mineField[x, y].Flag = false;
+                if (ps.mineField[x, y].Mine == false)
                 {
                     makeImage(x, y);
-                    if (ps.mineField[x, y].number == 0)
+                    if (ps.mineField[x, y].Number == 0)
                     {
                         checkSurrounding(x, y);
                     }
-                    ps.mineField[x, y].open = true;
+                    ps.mineField[x, y].Open = true;
                 }
                 else
                 {
@@ -258,38 +279,56 @@ namespace MineSweeper
             aTimer.Elapsed += new ElapsedEventHandler(tick);
             aTimer.Interval = 1000;
             aTimer.Enabled = true;
-            minesLeft = new Label();
-            minesLeft.Location = new Point(rows * (tileSize) + 5, 10);
-            minesLeft.Size = new System.Drawing.Size(100, 50);
-            minesLeft.Image = MineSweeper.Resource1.minesleft;
+
+            minesLeft = new Label
+            {
+                Location = new Point(rows * (tileSize) + 5, 10),
+                Size = new System.Drawing.Size(100, 50),
+                Image = MineSweeper.Resource1.minesleft
+            };
             this.Controls.Add(minesLeft);
-            minesLeftBox = new Label();
-            minesLeftBox.Location = new Point(rows * (tileSize) + 100, 0);
-            minesLeftBox.Size = new System.Drawing.Size(50, 50);
-            minesLeftBox.Text = mines.ToString();
-            minesLeftBox.AutoSize = true;
-            minesLeftBox.Font = new Font("Calibri", 40);
-            minesLeftBox.ForeColor = Color.Green;
+
+            minesLeftBox = new Label
+            {
+                Location = new Point(rows * (tileSize) + 100, 0),
+                Size = new System.Drawing.Size(50, 50),
+                Text = mines.ToString(),
+                AutoSize = true,
+                Font = new Font("Calibri", 40),
+                ForeColor = Color.Green
+            };
             this.Controls.Add(minesLeftBox);
-            time = new Label();
-            time.Location = new Point(rows * (tileSize) + 5, 80);
-            time.Size = new System.Drawing.Size(100, 50);
-            time.Image = MineSweeper.Resource1.time;
+
+            time = new Label
+            {
+                Location = new Point(rows * (tileSize) + 5, 80),
+                Size = new System.Drawing.Size(100, 50),
+                Image = MineSweeper.Resource1.time
+            };
             this.Controls.Add(time);
-            timeBox = new Label();
-            timeBox.Location = new Point(rows * (tileSize) + 100, 70);
-            timeBox.Size = new System.Drawing.Size(50, 50);
-            timeBox.Text = timer.ToString();
-            timeBox.AutoSize = true;
-            timeBox.Font = new Font("Calibri", 40);
-            timeBox.ForeColor = Color.Green;
+
+            timeBox = new Label
+            {
+                Location = new Point(rows * (tileSize) + 100, 70),
+                Size = new System.Drawing.Size(50, 50),
+                Text = timer.ToString(),
+                AutoSize = true,
+                Font = new Font("Calibri", 40),
+                ForeColor = Color.Green
+            };
             this.Controls.Add(timeBox);
+
             back = new Button();
             back.SetBounds(rows * (tileSize), cols * (tileSize) - 50, 200, 50);
-            back.Text = "BACK";
+            back.Text = "Back";
             back.MouseClick += new MouseEventHandler(backClick);
             this.Controls.Add(back);
         }
+        private void backClick(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         void tick(object sender, EventArgs e)
         {
             timer++;

@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MineSweeper
 {
@@ -33,19 +27,19 @@ namespace MineSweeper
                 case 1:
                     this.rows = 8;
                     this.cols = 8;
-                    this.bombs = 10;
+                    this.bombs = 8;
                     break;
 
                 case 2:
-                    this.rows = 15;
-                    this.cols = 15;
-                    this.bombs = 30;
+                    this.rows = 12;
+                    this.cols = 12;
+                    this.bombs = 25;
                     break;
 
                 case 3:
-                    this.rows = 25;
-                    this.cols = 20;
-                    this.bombs = 100;
+                    this.rows = 20;
+                    this.cols = 15;
+                    this.bombs = 80;
                     break;
             }
             mineField = new Cell[rows, cols];
@@ -66,10 +60,10 @@ namespace MineSweeper
             {
                 int i = rand.Next(rows);
                 int j = rand.Next(cols);
-                if(mineField[i,j].mine == false)
+                if(mineField[i,j].Mine == false)
                 {
-                    mineField[i, j].mine = true;
-                    mineField[i, j].number = -1;
+                    mineField[i, j].Mine = true;
+                    mineField[i, j].Number = -1;
                     bomb--;
                 }               
             }
@@ -77,13 +71,13 @@ namespace MineSweeper
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    if (mineField[i, j].mine == false)
+                    if (mineField[i, j].Mine == false)
                     {
                         for (int k = i - 1; k <= i + 1; k++)
                             if ((k >= 0) && (k < rows))
                                 for (int l = j - 1; l <= j + 1; l++)
-                                    if ((l >= 0) && (l < cols) && mineField[k, l].mine)
-                                        mineField[i, j].number++;
+                                    if ((l >= 0) && (l < cols) && mineField[k, l].Mine)
+                                        mineField[i, j].Number++;
                     }
                 }
             }
@@ -97,7 +91,7 @@ namespace MineSweeper
             {
                 for (int j = 0; j < cols; j++)
                 {
-                    if (mineField[i, j].open == true)
+                    if (mineField[i, j].Open == true)
                         openFields++;
                 }
             }
@@ -105,5 +99,8 @@ namespace MineSweeper
                 return true;
             return false;
         }
+
+
+      
     }
 }
