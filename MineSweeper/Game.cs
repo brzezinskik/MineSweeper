@@ -150,11 +150,11 @@ namespace MineSweeper
                         break;
 
                     case 2:
-
+                        HighScore.listIntermediate.Add(score);
                         break;
 
                     case 3:
-
+                        HighScore.listExpert.Add(score);
                         break;
                 }
             }

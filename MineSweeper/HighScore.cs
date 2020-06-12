@@ -78,18 +78,18 @@ namespace MineSweeper
             listExpert.Sort();
             if (listExpert.Count >= 1)
             {
-                timeB1.Text = listExpert[0].time.ToString();
-                NameB1.Text = listExpert[0].name.ToString();
+                timeE1.Text = listExpert[0].time.ToString();
+                NameE1.Text = listExpert[0].name.ToString();
             }
             if (listExpert.Count >= 2)
             {
-                timeB2.Text = listExpert[1].time.ToString();
-                NameB2.Text = listExpert[1].name.ToString();
+                timeE2.Text = listExpert[1].time.ToString();
+                NameE2.Text = listExpert[1].name.ToString();
             }
             if (listExpert.Count >= 3)
             {
-                timeB3.Text = listExpert[2].time.ToString();
-                NameB3.Text = listExpert[2].name.ToString();
+                timeE3.Text = listExpert[2].time.ToString();
+                NameE3.Text = listExpert[2].name.ToString();
             }
         }
 

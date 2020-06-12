@@ -33,7 +33,7 @@ namespace MineSweeper
         public PracticeBox()
         {
             InitializeComponent();
-            this.Text = "Practice box";
+            this.Text = "Custom game";
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
