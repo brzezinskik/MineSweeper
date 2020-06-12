@@ -17,7 +17,7 @@ namespace MineSweeper
         private bool gameWon = false;
         private bool practice = false;
         
-        private System.Timers.Timer aTimer;
+        private System.Timers.Timer gameTimer;
         private int timer;
         private int difficulty = 1;
 
@@ -116,23 +116,21 @@ namespace MineSweeper
                 string message = "You lost";
                 string caption = "Message";
                 MessageBoxButtons buttons = MessageBoxButtons.OK;
-                DialogResult result;
-                result = MessageBox.Show(message, caption, buttons);
-                aTimer.Stop();                
+                MessageBox.Show(message, caption, buttons);
+                gameTimer.Stop();                
             }
             else
             {
                 gameWon = gameField.gameWon();
                 if (gameWon == true)
                 {
-                    aTimer.Stop();
+                    gameTimer.Stop();
                     sound.playGameWonSound();
                     showBombs();
                     string message = "You won";
                     string caption = "Message";
                     MessageBoxButtons buttons = MessageBoxButtons.OK;
-                    DialogResult result;
-                    result = MessageBox.Show(message, caption, buttons);
+                    MessageBox.Show(message, caption, buttons);
                     addToHighScore();
                 }                
             }
@@ -277,10 +275,10 @@ namespace MineSweeper
         }
         private void loadInfo()
         {
-            aTimer = new System.Timers.Timer();
-            aTimer.Elapsed += new ElapsedEventHandler(tick);
-            aTimer.Interval = 1000;
-            aTimer.Enabled = true;
+            gameTimer = new System.Timers.Timer();
+            gameTimer.Elapsed += new ElapsedEventHandler(tick);
+            gameTimer.Interval = 1000;
+            gameTimer.Enabled = true;
 
             minesLeft = new Label
             {

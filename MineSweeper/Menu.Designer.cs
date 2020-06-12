@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.difficulty = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.startButton = new System.Windows.Forms.Button();
+            this.customButton = new System.Windows.Forms.Button();
+            this.difficultyText = new System.Windows.Forms.TextBox();
             this.highScore = new System.Windows.Forms.Button();
             this.nickName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -52,53 +52,53 @@
             this.difficulty.TabIndex = 0;
             this.difficulty.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // button1
+            // exitButton
             // 
-            this.button1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 219);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 35);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.exitClick);
+            this.exitButton.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.Location = new System.Drawing.Point(12, 219);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(158, 35);
+            this.exitButton.TabIndex = 1;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitClick);
             // 
-            // button2
+            // startButton
             // 
-            this.button2.BackColor = System.Drawing.Color.Gainsboro;
-            this.button2.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Location = new System.Drawing.Point(12, 6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 35);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Start";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.startClick);
+            this.startButton.BackColor = System.Drawing.Color.Gainsboro;
+            this.startButton.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.startButton.Location = new System.Drawing.Point(12, 6);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(158, 35);
+            this.startButton.TabIndex = 2;
+            this.startButton.Text = "Start";
+            this.startButton.UseVisualStyleBackColor = false;
+            this.startButton.Click += new System.EventHandler(this.startClick);
             // 
-            // button3
+            // customButton
             // 
-            this.button3.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(12, 137);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(158, 35);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Custom Game";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.customButton.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customButton.Location = new System.Drawing.Point(12, 137);
+            this.customButton.Name = "customButton";
+            this.customButton.Size = new System.Drawing.Size(158, 35);
+            this.customButton.TabIndex = 3;
+            this.customButton.Text = "Custom Game";
+            this.customButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.customButton.UseVisualStyleBackColor = true;
+            this.customButton.Click += new System.EventHandler(this.button3_Click);
             // 
-            // textBox1
+            // difficultyText
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(12, 73);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(158, 33);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "Difficulty";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.difficultyText.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.difficultyText.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.difficultyText.Location = new System.Drawing.Point(12, 73);
+            this.difficultyText.Name = "difficultyText";
+            this.difficultyText.ReadOnly = true;
+            this.difficultyText.Size = new System.Drawing.Size(158, 33);
+            this.difficultyText.TabIndex = 4;
+            this.difficultyText.Text = "Difficulty";
+            this.difficultyText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // highScore
             // 
@@ -127,10 +127,10 @@
             this.ClientSize = new System.Drawing.Size(186, 259);
             this.Controls.Add(this.nickName);
             this.Controls.Add(this.highScore);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.difficultyText);
+            this.Controls.Add(this.customButton);
+            this.Controls.Add(this.startButton);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.difficulty);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -142,10 +142,10 @@
 
         #endregion
         private System.Windows.Forms.ComboBox difficulty;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button startButton;
+        private System.Windows.Forms.Button customButton;
+        private System.Windows.Forms.TextBox difficultyText;
         private System.Windows.Forms.Button highScore;
         private System.Windows.Forms.TextBox nickName;
     }
