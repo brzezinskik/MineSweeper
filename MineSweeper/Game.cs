@@ -18,7 +18,7 @@ namespace MineSweeper
         private bool practice = false;
         
         private System.Timers.Timer gameTimer;
-        private int timer;
+        private int timer = 0;
         private int difficulty = 1;
 
         private Button back;
